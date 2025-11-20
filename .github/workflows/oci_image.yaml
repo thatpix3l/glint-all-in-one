@@ -35,4 +35,4 @@ jobs:
           push: true
           tags: ghcr.io/${{ github.repository }}:latest
           file: Containerfile
-          platforms: linux/${{ matrix.arch.os }}
+          platforms: linux/${{ matrix.arch.oci }}
