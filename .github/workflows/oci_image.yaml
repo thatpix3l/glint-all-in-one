@@ -8,6 +8,11 @@ jobs:
       contents: read
       packages: write
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch:
+          - oci: amd64
+          - oci: arm64
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -30,4 +35,4 @@ jobs:
           push: true
           tags: ghcr.io/${{ github.repository }}:latest
           file: Containerfile
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/${{ matrix.arch.os }}
